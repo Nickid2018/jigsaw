@@ -6,6 +6,7 @@ import renderer from './routes/renderer.js'
 import mojira from './routes/mojira.js'
 import oauth from './routes/oauth.js'
 import purge from './routes/purge.js'
+import wikitext from './routes/wikitext.js'
 
 const app = new Hono()
 
@@ -28,5 +29,6 @@ app.route('/renderer', renderer)
 app.route('/mojira', mojira)
 app.route('/oauth', oauth)
 app.route('/purge', purge)
+app.route('/wikitext', wikitext)
 
 export default app
