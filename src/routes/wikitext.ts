@@ -9,9 +9,11 @@ const RESOLVED_CACHE = new LRUCache<string, string>({
   max: 1000,
 })
 
+const CACHE_KEY_REGEX = /[a-z]{2}-[0-9a-f]{64}/
+
 const querySchema = z.object({
   wikitext: z.string().min(1),
-  key: z.string(),
+  key: z.string().length(67).regex(CACHE_KEY_REGEX),
 })
 
 app.get('/:hash', (ctx) => {
